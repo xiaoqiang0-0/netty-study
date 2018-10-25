@@ -1,4 +1,4 @@
-package com.xiaoqiang.chpter1.echo.server;
+package com.xiaoqiang.chapter1.echo.server;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;

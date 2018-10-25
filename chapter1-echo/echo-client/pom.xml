@@ -17,7 +17,7 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.xiaoqiang.chpter1.echo.client.EchoClient</mainClass>
+                    <mainClass>com.xiaoqiang.chapter1.echo.client.EchoClient</mainClass>
                 </configuration>
             </plugin>
         </plugins>

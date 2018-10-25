@@ -1,4 +1,4 @@
-package com.xiaoqiang.chpter1.echo.client;
+package com.xiaoqiang.chapter1.echo.client;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
