@@ -11,5 +11,15 @@
 
     <artifactId>echo-server</artifactId>
 
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.xiaoqiang.chpter1.echo.server.EchoServer</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
