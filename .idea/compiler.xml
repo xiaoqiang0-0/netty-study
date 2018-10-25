@@ -10,5 +10,8 @@
         <module name="echo-server" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="chapter2-component" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
