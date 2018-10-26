@@ -14,13 +14,38 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
         var poiop = System.getProperty("poiop", "10000");
-        var pniop = System.getProperty("poiop", "10001");
-        var noiop = System.getProperty("poiop", "10002");
-        var nniop = System.getProperty("poiop", "10003");
+        var pniop = System.getProperty("pniop", "10001");
+        var noiop = System.getProperty("noiop", "10002");
+        var nniop = System.getProperty("nniop", "10003");
 
-        new PlainOioServer().serve(Integer.parseInt(poiop));
-        new PlainNioServer().serve(Integer.parseInt(pniop));
-        new NettyOioServer().server(Integer.parseInt(noiop));
-        new NettyNioServer().server(Integer.parseInt(nniop));
+        new Thread(()->{
+            try {
+                new PlainOioServer().serve(Integer.parseInt(poiop));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
+        new Thread(()->{
+            try {
+                new PlainNioServer().serve(Integer.parseInt(pniop));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
+        new Thread(()->{
+            try {
+                new NettyOioServer().server(Integer.parseInt(noiop));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }).start();
+        new Thread(()->{
+            try {
+                new NettyNioServer().server(Integer.parseInt(nniop));
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }).start();
     }
 }

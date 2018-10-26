@@ -16,6 +16,7 @@ import java.util.Date;
  */
 public class PlainNioServer {
     public void serve(int port) throws IOException {
+        System.out.println("plain nio server start, on port " + port);
         var serverChannel = ServerSocketChannel.open();
         serverChannel.configureBlocking(false);
         var ssocket = serverChannel.socket();
@@ -25,7 +26,7 @@ public class PlainNioServer {
         var selector = Selector.open();
         //将channel注册到打开的selector，接收连接
         serverChannel.register(selector, SelectionKey.OP_ACCEPT);
-        var msg = ByteBuffer.wrap("Hi!".getBytes(Charset.forName("UTF-8")));
+        var msg = ByteBuffer.wrap("Hi!\r\n".getBytes(Charset.forName("UTF-8")));
         for (; ; ) {
             try {
                 //阻塞，等待新事件传入
@@ -50,7 +51,7 @@ public class PlainNioServer {
                         client.configureBlocking(false);
                         //注册到selector
                         client.register(selector, SelectionKey.OP_WRITE | SelectionKey.OP_READ, msg.duplicate());
-                        System.out.printf("[%s] 接收来自客户端:%s 的连接。\n", new Date(), client);
+                        System.out.printf("[%s] %s 接收来自客户端:%s 的连接。\n", new Date(), getClass().getSimpleName(), client);
                     }
                     //检查写入是否就绪
                     if (key.isWritable()) {

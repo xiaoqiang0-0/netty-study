@@ -11,10 +11,11 @@ import java.util.Date;
  */
 public class PlainOioServer {
     public void serve(int port) throws IOException {
+        System.out.println("plain oio server start, on port " + port);
         var socket = new ServerSocket(port);
         for (; ; ) {
             var client = socket.accept();
-            System.out.printf("[%s] 接收来自客户端:%s 的连接。\n", new Date(), client.getRemoteSocketAddress());
+            System.out.printf("[%s] %s 接收来自客户端:%s 的连接。\n", new Date(), getClass().getSimpleName(), client.getRemoteSocketAddress());
             new Thread(() -> {
                 try (var out = client.getOutputStream()) {
                     out.write("Hi!\r\n".getBytes(Charset.forName("UTF-8")));

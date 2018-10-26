@@ -16,6 +16,7 @@ import io.netty.channel.socket.oio.OioServerSocketChannel;
 
 import java.net.InetSocketAddress;
 import java.nio.charset.Charset;
+import java.util.Date;
 
 /**
  * @author 小强
@@ -23,6 +24,7 @@ import java.nio.charset.Charset;
  */
 public class NettyNioServer {
     public void server(int port) throws InterruptedException {
+        System.out.println("netty nio server start, on port " + port);
         var buf = Unpooled.unreleasableBuffer(Unpooled.copiedBuffer("Hi!\r\n", Charset.forName("UTF-8")));
         var group = new NioEventLoopGroup();
         try{
@@ -36,6 +38,7 @@ public class NettyNioServer {
                             ch.pipeline().addLast(new ChannelInboundHandlerAdapter(){
                                 @Override
                                 public void channelActive(ChannelHandlerContext ctx) throws Exception {
+                                    System.out.printf("[%s] %s 接收来自客户端:%s 的连接。\n", new Date(), "<nett nio>",ctx.channel().remoteAddress());
                                     ctx.writeAndFlush(buf.duplicate())
                                             .addListener(ChannelFutureListener.CLOSE);
                                 }
