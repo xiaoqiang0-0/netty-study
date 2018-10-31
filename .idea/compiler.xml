@@ -2,23 +2,20 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="chapter3-transfer" />
+        <module name="chatroom" />
         <module name="echo-client" />
         <module name="echo-server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="chapter1-echo" target="11" />
       <module name="chapter2-component" target="8" />
-      <module name="chapter3-transfer" target="11" />
-      <module name="echo-client" target="11" />
-      <module name="echo-server" target="11" />
       <module name="java-oio" target="11" />
-      <module name="netty-study" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

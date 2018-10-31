@@ -49,6 +49,7 @@
     <modules>
         <module>chapter1-echo</module>
         <module>chapter3-transfer</module>
+        <module>gp-homework</module>
     </modules>
 
     <properties/>
