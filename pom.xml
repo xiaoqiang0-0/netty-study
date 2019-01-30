@@ -50,6 +50,7 @@
         <module>chapter1-echo</module>
         <module>chapter3-transfer</module>
         <module>gp-homework</module>
+        <module>netty-http</module>
     </modules>
 
     <properties/>
