@@ -53,6 +53,7 @@
         <module>netty-http</module>
         <module>chapter5-bytebuf</module>
         <module>event-loop</module>
+        <module>bootstrap</module>
     </modules>
 
     <properties/>
