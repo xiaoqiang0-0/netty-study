@@ -26,8 +26,8 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <configuration>
-                        <source>11</source>
-                        <target>11</target>
+                        <source>8</source>
+                        <target>8</target>
                         <encoding>UTF-8</encoding>
                     </configuration>
                 </plugin>
@@ -51,6 +51,8 @@
         <module>chapter3-transfer</module>
         <module>gp-homework</module>
         <module>netty-http</module>
+        <module>chapter5-bytebuf</module>
+        <module>event-loop</module>
     </modules>
 
     <properties/>
