@@ -15,6 +15,7 @@
         <module name="echo-server" />
         <module name="event-loop" />
         <module name="netty-http" />
+        <module name="unit-test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
