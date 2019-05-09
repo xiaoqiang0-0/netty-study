@@ -1,4 +1,4 @@
-package com.xiaoqiang.ns.el;
+package com.xiaoqiang.ns.bootstrap;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;

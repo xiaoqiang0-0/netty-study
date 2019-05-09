@@ -1,4 +1,4 @@
-package com.xiaoqiang.ns.el;
+package com.xiaoqiang.ns.bootstrap;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.bootstrap.ServerBootstrap;
@@ -13,7 +13,7 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 
 import java.net.InetSocketAddress;
 
-public class ChannelBootStrap {
+public class ChannelBootstrap {
     public static void main(String[] args) {
         ServerBootstrap serverBootstrap = new ServerBootstrap();
 
