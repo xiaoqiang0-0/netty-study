@@ -55,6 +55,8 @@
         <module>event-loop</module>
         <module>bootstrap</module>
         <module>unit-test</module>
+        <module>preset-handler-codec</module>
+        <module>netty-websocket</module>
     </modules>
 
     <properties/>

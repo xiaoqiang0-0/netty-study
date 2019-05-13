@@ -1,0 +1,226 @@
+{
+  "apps": [
+    {
+      "name": "order_service",
+      "profiles": [
+        {
+          "name": "pro",
+          "labels": [
+            {
+              "name": "master",
+              "kvs": [
+                {"key": "k1", "value": "order_service-pro-master-v1"},
+                {"key": "k2", "value": "order_service-pro-master-v2"},
+                {"key": "k3", "value": "order_service-pro-master-v3"},
+                {"key": "k4", "value": "order_service-pro-master-v4"}
+              ]
+            },
+            {
+              "name": "V1",
+              "kvs": [
+                {"key": "k1", "value": "order_service-pro-V1-v1"},
+                {"key": "k2", "value": "order_service-pro-V1-v2"},
+                {"key": "k3", "value": "order_service-pro-V1-v3"},
+                {"key": "k4", "value": "order_service-pro-V1-v4"}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "test",
+          "labels": [
+            {
+              "name": "master",
+              "kvs": [
+                {"key": "k1", "value": "order_service-test-master-v1"},
+                {"key": "k2", "value": "order_service-test-master-v2"},
+                {"key": "k3", "value": "order_service-test-master-v3"},
+                {"key": "k4", "value": "order_service-test-master-v4"}
+              ]
+            },
+            {
+              "name": "V1",
+              "kvs": [
+                {"key": "k1", "value": "order_service-test-V1-v1"},
+                {"key": "k2", "value": "order_service-test-V1-v2"},
+                {"key": "k3", "value": "order_service-test-V1-v3"},
+                {"key": "k4", "value": "order_service-test-V1-v4"}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "dev",
+          "labels": [
+            {
+              "name": "master",
+              "kvs": [
+                {"key": "k1", "value": "order_service-dev-master-v1"},
+                {"key": "k2", "value": "order_service-dev-master-v2"},
+                {"key": "k3", "value": "order_service-dev-master-v3"},
+                {"key": "k4", "value": "order_service-dev-master-v4"}
+              ]
+            },
+            {
+              "name": "V1",
+              "kvs": [
+                {"key": "k1", "value": "order_service-dev-V1-v1"},
+                {"key": "k2", "value": "order_service-dev-V1-v2"},
+                {"key": "k3", "value": "order_service-dev-V1-v3"},
+                {"key": "k4", "value": "order_service-dev-V1-v4"}
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "user_service",
+      "profiles": [
+        {
+          "name": "pro",
+          "labels": [
+            {
+              "name": "master",
+              "kvs": [
+                {"key": "k1", "value": "user_service-pro-master-v1"},
+                {"key": "k2", "value": "user_service-pro-master-v2"},
+                {"key": "k3", "value": "user_service-pro-master-v3"},
+                {"key": "k4", "value": "user_service-pro-master-v4"}
+              ]
+            },
+            {
+              "name": "V1",
+              "kvs": [
+                {"key": "k1", "value": "user_service-pro-V1-v1"},
+                {"key": "k2", "value": "user_service-pro-V1-v2"},
+                {"key": "k3", "value": "user_service-pro-V1-v3"},
+                {"key": "k4", "value": "user_service-pro-V1-v4"}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "test",
+          "labels": [
+            {
+              "name": "master",
+              "kvs": [
+                {"key": "k1", "value": "user_service-test-master-v1"},
+                {"key": "k2", "value": "user_service-test-master-v2"},
+                {"key": "k3", "value": "user_service-test-master-v3"},
+                {"key": "k4", "value": "user_service-test-master-v4"}
+              ]
+            },
+            {
+              "name": "V1",
+              "kvs": [
+                {"key": "k1", "value": "user_service-test-V1-v1"},
+                {"key": "k2", "value": "user_service-test-V1-v2"},
+                {"key": "k3", "value": "user_service-test-V1-v3"},
+                {"key": "k4", "value": "user_service-test-V1-v4"}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "dev",
+          "labels": [
+            {
+              "name": "master",
+              "kvs": [
+                {"key": "k1", "value": "user_service-dev-master-v1"},
+                {"key": "k2", "value": "user_service-dev-master-v2"},
+                {"key": "k3", "value": "user_service-dev-master-v3"},
+                {"key": "k4", "value": "user_service-dev-master-v4"}
+              ]
+            },
+            {
+              "name": "V1",
+              "kvs": [
+                {"key": "k1", "value": "user_service-dev-V1-v1"},
+                {"key": "k2", "value": "user_service-dev-V1-v2"},
+                {"key": "k3", "value": "user_service-dev-V1-v3"},
+                {"key": "k4", "value": "user_service-dev-V1-v4"}
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "message_service",
+      "profiles": [
+        {
+          "name": "pro",
+          "labels": [
+            {
+              "name": "master",
+              "kvs": [
+                {"key": "k1", "value": "message_service-pro-master-v1"},
+                {"key": "k2", "value": "message_service-pro-master-v2"},
+                {"key": "k3", "value": "message_service-pro-master-v3"},
+                {"key": "k4", "value": "message_service-pro-master-v4"}
+              ]
+            },
+            {
+              "name": "V1",
+              "kvs": [
+                {"key": "k1", "value": "message_service-pro-V1-v1"},
+                {"key": "k2", "value": "message_service-pro-V1-v2"},
+                {"key": "k3", "value": "message_service-pro-V1-v3"},
+                {"key": "k4", "value": "message_service-pro-V1-v4"}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "test",
+          "labels": [
+            {
+              "name": "master",
+              "kvs": [
+                {"key": "k1", "value": "message_service-test-master-v1"},
+                {"key": "k2", "value": "message_service-test-master-v2"},
+                {"key": "k3", "value": "message_service-test-master-v3"},
+                {"key": "k4", "value": "message_service-test-master-v4"}
+              ]
+            },
+            {
+              "name": "V1",
+              "kvs": [
+                {"key": "k1", "value": "message_service-test-V1-v1"},
+                {"key": "k2", "value": "message_service-test-V1-v2"},
+                {"key": "k3", "value": "message_service-test-V1-v3"},
+                {"key": "k4", "value": "message_service-test-V1-v4"}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "dev",
+          "labels": [
+            {
+              "name": "master",
+              "kvs": [
+                {"key": "k1", "value": "message_service-dev-master-v1"},
+                {"key": "k2", "value": "message_service-dev-master-v2"},
+                {"key": "k3", "value": "message_service-dev-master-v3"},
+                {"key": "k4", "value": "message_service-dev-master-v4"}
+              ]
+            },
+            {
+              "name": "V1",
+              "kvs": [
+                {"key": "k1", "value": "message_service-dev-V1-v1"},
+                {"key": "k2", "value": "message_service-dev-V1-v2"},
+                {"key": "k3", "value": "message_service-dev-V1-v3"},
+                {"key": "k4", "value": "message_service-dev-V1-v4"}
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
