@@ -9,12 +9,14 @@ import java.io.File;
 import java.io.RandomAccessFile;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.net.URLDecoder;
 
 public class HttpRequestHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
     private final String wsUri;
     private static final File INDEX;
 
     static {
+        //路径会对url通过UrlEncoder编码，不会影响创建File，但是会导致创建RandomAccessFile失败
         URL location = HttpRequestHandler.class.getProtectionDomain().getCodeSource().getLocation();
         try {
             String path = location.toURI() + "index.html";
@@ -37,7 +39,8 @@ public class HttpRequestHandler extends SimpleChannelInboundHandler<FullHttpRequ
             if (HttpUtil.is100ContinueExpected(msg)) {
                 send100Continue(ctx);
             }
-            RandomAccessFile file = new RandomAccessFile(INDEX, "r");
+            //如果目录包含中文，通过File创建RandomAccessFile会发生失败
+            RandomAccessFile file = new RandomAccessFile(URLDecoder.decode(INDEX.getAbsolutePath(), "UTF-8"), "r");
             HttpResponse response = new DefaultHttpResponse(msg.protocolVersion(), HttpResponseStatus.OK);
             response.headers().set(HttpHeaders.Names.CONTENT_TYPE, "text/html; charset=UTF-8");
             boolean isKeepAlive = HttpUtil.isKeepAlive(msg);
