@@ -42,7 +42,7 @@ public class HttpRequestHandler extends SimpleChannelInboundHandler<FullHttpRequ
             //如果目录包含中文，通过File创建RandomAccessFile会发生失败
             RandomAccessFile file = new RandomAccessFile(URLDecoder.decode(INDEX.getAbsolutePath(), "UTF-8"), "r");
             HttpResponse response = new DefaultHttpResponse(msg.protocolVersion(), HttpResponseStatus.OK);
-            response.headers().set(HttpHeaders.Names.CONTENT_TYPE, "text/html; charset=UTF-8");
+            response.headers().set(HttpHeaderNames.CONTENT_TYPE, "text/html; charset=UTF-8");
             boolean isKeepAlive = HttpUtil.isKeepAlive(msg);
             if (isKeepAlive) {
                 response.headers().set(HttpHeaderNames.CONTENT_LENGTH, file.length());
