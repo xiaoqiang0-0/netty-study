@@ -13,10 +13,10 @@ import java.io.IOException;
  */
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
-        var poiop = System.getProperty("poiop", "10000");
-        var pniop = System.getProperty("pniop", "10001");
-        var noiop = System.getProperty("noiop", "10002");
-        var nniop = System.getProperty("nniop", "10003");
+        String poiop = System.getProperty("poiop", "10000");
+        String pniop = System.getProperty("pniop", "10001");
+        String noiop = System.getProperty("noiop", "10002");
+        String nniop = System.getProperty("nniop", "10003");
 
         new Thread(()->{
             try {

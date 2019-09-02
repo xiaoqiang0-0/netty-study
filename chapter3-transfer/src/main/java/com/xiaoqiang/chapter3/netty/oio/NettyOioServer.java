@@ -19,10 +19,10 @@ import java.util.Date;
 public class NettyOioServer {
     public void server(int port) throws InterruptedException {
         System.out.println("netty oio server start, on port " + port);
-        var buf = Unpooled.unreleasableBuffer(Unpooled.copiedBuffer("Hi!\r\n", Charset.forName("UTF-8")));
-        var group = new OioEventLoopGroup();
+        ByteBuf buf = Unpooled.unreleasableBuffer(Unpooled.copiedBuffer("Hi!\r\n", Charset.forName("UTF-8")));
+        OioEventLoopGroup group = new OioEventLoopGroup();
         try{
-            var bootstrap = new ServerBootstrap();
+            ServerBootstrap bootstrap = new ServerBootstrap();
             bootstrap.group(group)
                     .channel(OioServerSocketChannel.class)
                     .localAddress(new InetSocketAddress(port))
@@ -39,7 +39,7 @@ public class NettyOioServer {
                             });
                         }
                     });
-            var f = bootstrap.bind().sync();
+            ChannelFuture f = bootstrap.bind().sync();
             f.channel().closeFuture().sync();
         } finally {
             group.shutdownGracefully().sync();

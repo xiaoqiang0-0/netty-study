@@ -1,11 +1,9 @@
 package com.xiaoqiang.chapter3.netty.nio;
 
 import io.netty.bootstrap.ServerBootstrap;
+import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
-import io.netty.channel.ChannelFutureListener;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
-import io.netty.channel.ChannelInitializer;
+import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoop;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.oio.OioEventLoopGroup;
@@ -25,10 +23,10 @@ import java.util.Date;
 public class NettyNioServer {
     public void server(int port) throws InterruptedException {
         System.out.println("netty nio server start, on port " + port);
-        var buf = Unpooled.unreleasableBuffer(Unpooled.copiedBuffer("Hi!\r\n", Charset.forName("UTF-8")));
-        var group = new NioEventLoopGroup();
+        ByteBuf buf = Unpooled.unreleasableBuffer(Unpooled.copiedBuffer("Hi!\r\n", Charset.forName("UTF-8")));
+        NioEventLoopGroup group = new NioEventLoopGroup();
         try{
-            var bootstrap = new ServerBootstrap();
+            ServerBootstrap bootstrap = new ServerBootstrap();
             bootstrap.group(group)
                     .channel(NioServerSocketChannel.class)
                     .localAddress(new InetSocketAddress(port))
@@ -45,7 +43,7 @@ public class NettyNioServer {
                             });
                         }
                     });
-            var f = bootstrap.bind().sync();
+            ChannelFuture f = bootstrap.bind().sync();
             f.channel().closeFuture().sync();
         } finally {
             group.shutdownGracefully().sync();
