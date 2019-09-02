@@ -51,12 +51,13 @@
         <module>chapter3-transfer</module>
         <module>gp-homework</module>
         <module>netty-http</module>
-        <module>chapter5-bytebuf</module>
+<!--        <module>chapter5-bytebuf</module>-->
         <module>event-loop</module>
         <module>bootstrap</module>
         <module>unit-test</module>
-        <module>preset-handler-codec</module>
+<!--        <module>preset-handler-codec</module>-->
         <module>netty-websocket</module>
+        <module>time-demo</module>
     </modules>
 
     <properties/>
