@@ -14,7 +14,16 @@
     <modules>
         <module>time-server</module>
         <module>time-client</module>
+        <module>time-core</module>
     </modules>
 
-
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.xiaoqiang</groupId>
+                <artifactId>time-core</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>

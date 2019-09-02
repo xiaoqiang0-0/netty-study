@@ -1,5 +1,6 @@
 package com.xiaoqiang.ns.time.server;
 
+import com.xiaoqiang.ns.time.core.UnixTime;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.*;
 
@@ -7,9 +8,7 @@ import io.netty.channel.*;
 public class TimeServerHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        final ByteBuf time = ctx.alloc().buffer(4);
-        time.writeInt((int) (System.currentTimeMillis() / 1000 + 2208988800L));
-        ChannelFuture f = ctx.writeAndFlush(time);
+        ChannelFuture f = ctx.writeAndFlush(new UnixTime((int) (System.currentTimeMillis() / 1000 + 2208988800L)));
         f.addListener((ChannelFutureListener) future -> {
             assert f == future;
             ctx.close();

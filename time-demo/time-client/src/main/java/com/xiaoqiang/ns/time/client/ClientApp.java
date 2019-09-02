@@ -1,5 +1,6 @@
 package com.xiaoqiang.ns.time.client;
 
+import com.xiaoqiang.ns.time.core.TimeDecoder;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -21,7 +22,7 @@ public class ClientApp {
         bootstrap.handler(new ChannelInitializer<SocketChannel>() {
             @Override
             protected void initChannel(SocketChannel ch) throws Exception {
-                ch.pipeline().addLast(new TimeClientHandler());
+                ch.pipeline().addLast(new TimeDecoder(), new TimeClientHandler());
             }
         });
         ChannelFuture f = bootstrap.connect(host, port).sync();

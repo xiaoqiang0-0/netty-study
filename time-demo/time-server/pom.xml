@@ -10,6 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>time-server</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.xiaoqiang</groupId>
+            <artifactId>time-core</artifactId>
+        </dependency>
+    </dependencies>
 
 
 </project>
