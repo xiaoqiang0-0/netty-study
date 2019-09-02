@@ -1,6 +1,5 @@
 package com.xiaoqiang.netty.http.server;
 
-import com.sun.security.ntlm.Server;
 import com.xiaoqiang.netty.http.core.HttpRequestDecoder;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
