@@ -58,7 +58,6 @@
 <!--        <module>preset-handler-codec</module>-->
         <module>netty-websocket</module>
         <module>time-demo</module>
-        <module>bytebuf-study</module>
     </modules>
 
     <properties/>

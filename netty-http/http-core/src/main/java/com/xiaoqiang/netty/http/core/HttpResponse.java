@@ -41,4 +41,14 @@ public class HttpResponse {
     public void setBody(HttpResponseBody body) {
         this.body = body;
     }
+
+    @Override
+    public String toString() {
+        return "HttpResponse{" +
+                "version=" + version +
+                ", status=" + status +
+                ", headers=" + headers +
+                ", body=" + body +
+                '}';
+    }
 }

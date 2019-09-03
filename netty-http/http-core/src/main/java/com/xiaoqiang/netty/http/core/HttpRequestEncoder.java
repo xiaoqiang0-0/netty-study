@@ -4,18 +4,17 @@ import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
 
-
-public class HttpResponseEncoder extends MessageToByteEncoder<HttpResponse> {
+public class HttpRequestEncoder extends MessageToByteEncoder<HttpRequest> {
     @Override
-    protected void encode(ChannelHandlerContext ctx, HttpResponse msg, ByteBuf out) throws Exception {
-        out.writeBytes(msg.getVersion().text().getBytes());
+    protected void encode(ChannelHandlerContext ctx, HttpRequest msg, ByteBuf out) throws Exception {
+        out.writeBytes(msg.getMethod().name().getBytes());
         out.writeByte(' ');
-        out.writeBytes(msg.getStatus().codeAsText().toByteArray());
+        out.writeBytes(msg.getUri().getBytes());
         out.writeByte(' ');
-        out.writeBytes(msg.getStatus().reasonPhrase().getBytes());
+        out.writeBytes(msg.getProtocolVersion().text().getBytes());
         out.writeByte('\r');
         out.writeByte('\n');
-        msg.getHeaders().forEach((header)->{
+        msg.getHeaders().forEach(header -> {
             out.writeBytes(header.getKey().getBytes());
             out.writeByte(':');
             out.writeByte(' ');
@@ -25,6 +24,8 @@ public class HttpResponseEncoder extends MessageToByteEncoder<HttpResponse> {
         });
         out.writeByte('\r');
         out.writeByte('\n');
-        out.writeBytes(msg.getBody().getContent());
+        out.writeBytes(msg.getContent());
+        out.writeByte('\r');
+        out.writeByte('\n');
     }
 }

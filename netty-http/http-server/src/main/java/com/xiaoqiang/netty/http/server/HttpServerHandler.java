@@ -27,5 +27,6 @@ public class HttpServerHandler extends SimpleChannelInboundHandler<HttpRequest> 
                 "</body>\n" +
                 "</html>"));
         ctx.writeAndFlush(response);
+        ctx.close();
     }
 }

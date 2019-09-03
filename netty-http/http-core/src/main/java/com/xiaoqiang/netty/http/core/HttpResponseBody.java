@@ -22,4 +22,11 @@ public class HttpResponseBody {
     public ByteBuf getContent() {
         return content;
     }
+
+    @Override
+    public String toString() {
+        return "HttpResponseBody{" +
+                "content=" + content.toString() +
+                '}';
+    }
 }

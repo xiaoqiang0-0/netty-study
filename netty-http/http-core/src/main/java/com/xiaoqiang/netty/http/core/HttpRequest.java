@@ -51,4 +51,15 @@ public class HttpRequest {
     public void setContent(ByteBuf content) {
         this.content = content;
     }
+
+    @Override
+    public String toString() {
+        return "HttpRequest{" +
+                "method=" + method +
+                ", uri='" + uri + '\'' +
+                ", protocolVersion=" + protocolVersion +
+                ", headers=" + headers +
+                ", content=" + content.toString() +
+                '}';
+    }
 }

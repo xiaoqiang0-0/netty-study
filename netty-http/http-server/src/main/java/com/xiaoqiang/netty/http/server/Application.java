@@ -20,11 +20,11 @@ public class Application {
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception {
                         ch.pipeline().addLast(new HttpRequestDecoder());
-                        ch.pipeline().addLast(new HttpServerHandler());
                         ch.pipeline().addLast(new HttpResponseEncoder());
+                        ch.pipeline().addLast(new HttpServerHandler());
                     }
                 });
-        ChannelFuture f = serverBootstrap.bind(80).sync();
+        ChannelFuture f = serverBootstrap.bind(8080).sync();
         f.addListener(future -> {
             if (future.isSuccess()) {
                 System.out.println("server start...");
