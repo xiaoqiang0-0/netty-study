@@ -1,6 +1,7 @@
 package com.xiaoqiang.netty.http.server;
 
 import com.xiaoqiang.netty.http.core.HttpRequestDecoder;
+import com.xiaoqiang.netty.http.core.HttpResponseEncoder;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -19,6 +20,8 @@ public class Application {
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception {
                         ch.pipeline().addLast(new HttpRequestDecoder());
+                        ch.pipeline().addLast(new HttpServerHandler());
+                        ch.pipeline().addLast(new HttpResponseEncoder());
                     }
                 });
         ChannelFuture f = serverBootstrap.bind(80).sync();
