@@ -2,6 +2,7 @@ package com.xiaoqiang.ns.http.client;
 
 import com.xiaoqiang.netty.http.core.*;
 import io.netty.bootstrap.Bootstrap;
+import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -24,15 +25,18 @@ public class RequestTest {
         bootstrap.handler(new ChannelInitializer<SocketChannel>() {
             @Override
             protected void initChannel(SocketChannel ch) throws Exception {
-                ch.pipeline().addLast(new HttpResponseDecoder());
-                ch.pipeline().addLast(new HttpRequestEncoder());
-
+                ch.pipeline().addLast(new HttpClientCodec());
                 ch.pipeline().addLast(new SimpleChannelInboundHandler<HttpResponse>() {
 
                     @Override
                     protected void channelRead0(ChannelHandlerContext ctx, HttpResponse msg) throws Exception {
                         System.err.println("收到服务器响应:");
-                        System.err.println(msg);
+                        ByteBuf buf = msg.getBody().getContent();
+                        byte[] data = new byte[buf.readableBytes()];
+                        buf.readBytes(data);
+
+                        System.err.println(new String(data));
+
                     }
 
                     @Override
