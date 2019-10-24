@@ -14,5 +14,6 @@ public class HttpResponseDecoder extends ByteToMessageDecoder implements HttpRes
         response.setStatus(parseStatus(in));
         response.setHeaders(parseHeaders(in));
         response.setBody(new HttpResponseBody(parseContent(in)));
+        out.add(response);
     }
 }

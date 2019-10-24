@@ -24,8 +24,17 @@ public class RequestTest {
         bootstrap.handler(new ChannelInitializer<SocketChannel>() {
             @Override
             protected void initChannel(SocketChannel ch) throws Exception {
+                ch.pipeline().addLast(new HttpResponseDecoder());
                 ch.pipeline().addLast(new HttpRequestEncoder());
+
                 ch.pipeline().addLast(new SimpleChannelInboundHandler<HttpResponse>() {
+
+                    @Override
+                    protected void channelRead0(ChannelHandlerContext ctx, HttpResponse msg) throws Exception {
+                        System.err.println("收到服务器响应:");
+                        System.err.println(msg);
+                    }
+
                     @Override
                     public void channelActive(ChannelHandlerContext ctx) throws Exception {
                         HttpRequest request = new HttpRequest();
@@ -38,14 +47,7 @@ public class RequestTest {
                         request.setContent(Unpooled.wrappedBuffer("Hello?".getBytes()));
                         ctx.writeAndFlush(request);
                     }
-
-                    @Override
-                    protected void channelRead0(ChannelHandlerContext ctx, HttpResponse msg) throws Exception {
-                        System.out.println("收到服务器响应:");
-                        System.out.println(msg);
-                    }
                 });
-                ch.pipeline().addLast(new HttpResponseDecoder());
             }
         });
         try {
