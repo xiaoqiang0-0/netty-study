@@ -25,6 +25,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.1</version>
                     <configuration>
                         <source>8</source>
                         <target>8</target>
@@ -58,6 +59,7 @@
 <!--        <module>preset-handler-codec</module>-->
         <module>netty-websocket</module>
         <module>time-demo</module>
+        <module>gp-netty</module>
     </modules>
 
     <properties/>
