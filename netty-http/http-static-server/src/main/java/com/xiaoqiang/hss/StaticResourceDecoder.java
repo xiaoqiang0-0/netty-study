@@ -13,7 +13,7 @@ public class StaticResourceDecoder extends MessageToMessageDecoder<HttpRequest> 
     protected void decode(ChannelHandlerContext ctx, HttpRequest msg, List<Object> out) throws Exception {
         StaticResource resource = new StaticResource(msg.getUri());
         resource.setRequest(msg);
-        out.add(msg);
         ctx.writeAndFlush(resource);
+        ctx.close();
     }
 }

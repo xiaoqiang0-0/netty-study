@@ -6,7 +6,6 @@ import com.xiaoqiang.netty.http.core.HttpResponseBody;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageEncoder;
 import io.netty.handler.codec.http.DefaultHttpHeaders;
-import io.netty.handler.codec.http.EmptyHttpHeaders;
 import io.netty.handler.codec.http.HttpHeaders;
 import io.netty.handler.codec.http.HttpResponseStatus;
 
@@ -25,7 +24,6 @@ public class StaticResourceEncoder extends MessageToMessageEncoder<StaticResourc
         response.setStatus(HttpResponseStatus.OK);
         response.setVersion(request.getProtocolVersion());
         response.setBody(new HttpResponseBody(msg.getData()));
-        ctx.writeAndFlush(response);
-        ctx.close();
+        out.add(response);
     }
 }
