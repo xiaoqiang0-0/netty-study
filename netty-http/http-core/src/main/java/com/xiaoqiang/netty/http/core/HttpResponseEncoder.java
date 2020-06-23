@@ -15,7 +15,7 @@ public class HttpResponseEncoder extends MessageToByteEncoder<HttpResponse> {
         out.writeBytes(msg.getStatus().reasonPhrase().getBytes());
         out.writeByte('\r');
         out.writeByte('\n');
-        msg.getHeaders().forEach((header)->{
+        msg.getHeaders().forEach((header) -> {
             out.writeBytes(header.getKey().getBytes());
             out.writeByte(':');
             out.writeByte(' ');
